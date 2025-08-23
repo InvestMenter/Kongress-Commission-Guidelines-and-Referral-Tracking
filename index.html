@@ -79,7 +79,7 @@
             transition: all 0.3s ease;
             border-right: 1px solid rgba(214, 177, 96, 0.3);
             white-space: nowrap;
-            min-width: 200px;
+            min-width: 180px;
         }
         
         .tab-button:last-child {
@@ -209,6 +209,91 @@
             color: #cccccc;
             font-style: italic;
             font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .support-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .support-link {
+            background: #D6B160;
+            color: #ffffff;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(214, 177, 96, 0.3);
+        }
+        
+        .support-link:hover {
+            background: #c5a055;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(214, 177, 96, 0.4);
+        }
+        
+        .sop-section {
+            background: rgba(214, 177, 96, 0.05);
+            border: 2px solid #D6B160;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .sop-step {
+            background: rgba(214, 177, 96, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #D6B160;
+        }
+        
+        .sop-step h3 {
+            color: #D6B160;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .sop-step h4 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .checklist {
+            margin: 15px 0;
+        }
+        
+        .checklist li {
+            color: #cccccc;
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #D6B160;
+            font-weight: bold;
+        }
+        
+        .example-box {
+            background: rgba(214, 177, 96, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #D6B160;
+        }
+        
+        .example-box strong {
+            color: #D6B160;
         }
         
         @media (max-width: 768px) {
@@ -241,6 +326,11 @@
             .tab-button:last-child {
                 border-bottom: none;
             }
+            
+            .support-links {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -257,6 +347,7 @@
                 <button class="tab-button" onclick="openTab(event, 'flow')">🎯 System Flow</button>
                 <button class="tab-button" onclick="openTab(event, 'commission')">💰 Commission Calculation</button>
                 <button class="tab-button" onclick="openTab(event, 'principles')">🔒 Core Principles</button>
+                <button class="tab-button" onclick="openTab(event, 'sop')">📖 Complete SOP</button>
             </div>
             
             <!-- Tab 1: System Overview -->
@@ -586,10 +677,221 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Tab 5: Complete SOP -->
+            <div id="sop" class="tab-content">
+                <h2 class="section-title">📖 Complete Standard Operating Procedure</h2>
+                
+                <div class="sop-section">
+                    <div style="background: #D6B160; color: #ffffff; padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: center;">
+                        <h3 style="font-weight: 700; font-size: 1.4em;">📌 SOP Purpose</h3>
+                        <p style="margin-top: 10px; font-size: 1em; font-weight: 500;">
+                            This SOP outlines the complete process for managing the InvestMenter UTM tracking and referral system to ensure fair commission distribution, proper lead attribution, and maximum partner motivation.
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(214, 177, 96, 0.1); border: 2px solid #D6B160; border-radius: 15px; padding: 25px; margin-bottom: 25px;">
+                        <h4 style="color: #D6B160; margin-bottom: 15px; font-weight: 700; font-size: 1.2em;">📋 System Access Requirements</h4>
+                        <ul class="checklist">
+                            <li>InvestMenter Close CRM access</li>
+                            <li>Link Builder access</li>
+                            <li>Email Notification System</li>
+                            <li>Commission Tracking Spreadsheet</li>
+                        </ul>
+                        
+                        <h4 style="color: #D6B160; margin: 20px 0 15px 0; font-weight: 700; font-size: 1.2em;">📋 Documentation & Resources</h4>
+                        <ul class="checklist">
+                            <li>UTM Parameter Standards Document</li>
+                            <li>Commission Rate Guidelines</li>
+                            <li>Referral Link Templates</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="sop-step">
+                    <h3>🛠 Step 1: Lead Entry Classification</h3>
+                    <p style="color: #cccccc; margin-bottom: 15px;">When a new contact enters the system, immediately determine their status:</p>
+                    
+                    <h4>For New Lead Verification:</h4>
+                    <ul class="checklist">
+                        <li>Check CRM database using email address and phone number</li>
+                        <li>Verify no previous interactions with InvestMenter systems</li>
+                        <li>Confirm this is a completely fresh contact</li>
+                    </ul>
+                    
+                    <h4>For Existing Lead Identification:</h4>
+                    <ul class="checklist">
+                        <li>Search CRM for any previous records</li>
+                        <li>Check existing First Touch Point (FTP) attribution</li>
+                        <li>Verify Last Touch Point (LTP) status</li>
+                    </ul>
+                    
+                    <div class="example-box">
+                        <strong>New Lead Example:</strong> Dr. Max Müller submits contact through https://www.investment-kongress.com
+                        <br>• No existing CRM record ✅
+                        <br>• UTM Source: "Dr. Max Müller"
+                        <br>• Status: First Touch Point secured permanently
+                        <br><br>
+                        <strong>Existing Lead Example:</strong> Same contact tries to be referred by Ute Schmidt
+                        <br>• Existing CRM record found ❌
+                        <br>• FTP remains: "Dr. Max Müller"  
+                        <br>• Action: Block submission, send notification
+                        <br>• Last Touchpoint will be updated as Ute Schmidt
+                    </div>
+                </div>
+                
+                <div class="sop-step">
+                    <h3>📧 Step 2: UTM Tracking Implementation</h3>
+                    <p style="color: #cccccc; margin-bottom: 15px;">Configure and deploy proper UTM tracking for all partner marketing materials:</p>
+                    
+                    <h4>UTM Parameter Structure:</h4>
+                    <ul class="checklist">
+                        <li><code>utm_source</code> = Partner Name (e.g., "Dr_Max_Muller")</li>
+                        <li><code>utm_medium</code> = Channel Type (e.g., "referral", "cooperation")</li>
+                        <li><code>utm_campaign</code> = Specific Campaign (e.g., "InvestmentKongress2025ReferralProgram")</li>
+                    </ul>
+                    
+                    <h4>Implementation Locations:</h4>
+                    <ul class="checklist">
+                        <li>Investment Congress Registration – https://www.investment-kongress.com</li>
+                        <li>Webinar Registration Links – Partner-specific tracking</li>
+                        <li>PDF Downloads – Free reports and guides</li>
+                        <li>Direct Referral Forms – Active opt-in submissions</li>
+                    </ul>
+                </div>
+                
+                <div class="sop-step">
+                    <h3>💻 Step 3: First Touch Point (FTP) Management</h3>
+                    
+                    <h4>For New Leads Only - Automatic FTP Assignment:</h4>
+                    <ul class="checklist">
+                        <li>UTM source becomes permanent FTP</li>
+                        <li>Record timestamp of first interaction</li>
+                        <li>Lock FTP status (cannot be changed)</li>
+                    </ul>
+                    
+                    <h4>FTP Protection Verification:</h4>
+                    <ul class="checklist">
+                        <li>Confirm FTP is properly recorded in CRM</li>
+                        <li>Verify UTM tracking data integrity</li>
+                        <li>Document lead source for audit trail</li>
+                    </ul>
+                    
+                    <h4>For Existing Leads - FTP Protection Enforcement:</h4>
+                    <ul class="checklist">
+                        <li>Block any attempts to claim new FTP</li>
+                        <li>Send automatic notification to attempting partner</li>
+                        <li>Maintain original FTP attribution permanently</li>
+                    </ul>
+                </div>
+                
+                <div class="sop-step">
+                    <h3>🔗 Step 4: Last Touch Point (LTP) Updates</h3>
+                    
+                    <h4>UTM Link Engagement Tracking:</h4>
+                    <p style="color: #cccccc; margin-bottom: 15px;">When existing leads click UTM-tracked links:</p>
+                    <ul class="checklist">
+                        <li>Update LTP to new partner source</li>
+                        <li>Maintain FTP protection (never changes)</li>
+                        <li>Log engagement timestamp and activity</li>
+                        <li>No email notification (high-volume partners)</li>
+                    </ul>
+                    
+                    <h4>Verification Process:</h4>
+                    <ul class="checklist">
+                        <li>Confirm UTM parameters captured correctly</li>
+                        <li>Verify LTP update in CRM system</li>
+                        <li>Document engagement type and source</li>
+                    </ul>
+                </div>
+                
+                <div class="sop-step">
+                    <h3>📖 Step 5: Commission Calculation Process</h3>
+                    
+                    <h4>Standard 50/50 Split - Verify Purchase Eligibility:</h4>
+                    <ul class="checklist">
+                        <li>Confirm transaction completed</li>
+                        <li>Verify commission-eligible property</li>
+                        <li>Check customer payment status</li>
+                        <li>Check if KYC and paymaster are signed</li>
+                        <li>Check if passport received</li>
+                    </ul>
+                    
+                    <div class="example-box">
+                        <strong>Standard Split Example:</strong>
+                        <br>• Total Commission: €10,000
+                        <br>• 50% to First Touch Point: €5,000
+                        <br>• 50% to Last Touch Point: €5,000
+                    </div>
+                    
+                    <h4>Exception Rule - 100% FTP Commission:</h4>
+                    <p style="color: #cccccc; margin-bottom: 15px;">When contact has already taken action BEFORE LTP was claimed:</p>
+                    <ul class="checklist">
+                        <li>Already purchased with InvestMenter</li>
+                        <li>Submitted Expression of Interest (EOI)</li>
+                        <li>Signed Commission Sheet</li>
+                        <li>Provided passport copy</li>
+                    </ul>
+                    
+                    <div class="example-box">
+                        <strong>Exception Rule Example:</strong>
+                        <br>• Total Commission: €10,000
+                        <br>• 100% to First Touch Point: €10,000
+                        <br>• 0% to Last Touch Point: €0
+                    </div>
+                </div>
+                
+                <div class="sop-step">
+                    <h3>👨‍💻 Step 6: Troubleshooting & Dispute Resolution</h3>
+                    
+                    <h4>UTM Tracking Failures:</h4>
+                    <ul class="checklist">
+                        <li>Verify link structure and parameters</li>
+                        <li>Check CRM integration functionality</li>
+                        <li>Test tracking code implementation</li>
+                    </ul>
+                    
+                    <h4>Attribution Disputes:</h4>
+                    <ul class="checklist">
+                        <li>Review timestamp evidence</li>
+                        <li>Examine UTM tracking logs</li>
+                        <li>Document decision rationale</li>
+                        <li>Communicate resolution to all parties</li>
+                    </ul>
+                    
+                    <h4>Commission Calculation Errors:</h4>
+                    <ul class="checklist">
+                        <li>Double-check purchase verification</li>
+                        <li>Confirm exception rule application</li>
+                        <li>Recalculate using verified data</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(214, 177, 96, 0.05); border: 2px solid #D6B160; border-radius: 15px; padding: 25px; margin-top: 25px;">
+                    <h3 style="color: #D6B160; margin-bottom: 15px; font-weight: 700; font-size: 1.3em; text-align: center;">📌 Important Guidelines</h3>
+                    <div style="color: #cccccc; line-height: 1.8; font-size: 1em;">
+                        <p style="margin-bottom: 10px;">✔ <strong>One lead can NEVER be claimed from another source again</strong> - FTP protection is absolute</p>
+                        <p style="margin-bottom: 10px;">✔ <strong>UTM tracking must be implemented</strong> on ALL partner marketing materials</p>
+                        <p style="margin-bottom: 10px;">✔ <strong>Commission splits are automatic</strong> unless exception rules apply</p>
+                        <p style="margin-bottom: 10px;">✔ <strong>Documentation is mandatory</strong> for all attribution decisions</p>
+                        <p style="margin-bottom: 10px;">✔ <strong>Partner education is ongoing</strong> - regular training on system rules</p>
+                        <p>✔ <strong>System fairness is paramount</strong> - equal treatment for all partners</p>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div class="footer">
             <p>📹 For additional details and frequently asked questions, please refer to our comprehensive video guide: <strong>"Questions and Answers for InvestMenter Tracking System"</strong></p>
+            
+            <div class="support-links">
+                <a href="https://forms.monday.com/forms/96d88197ad68bc429cdab62007568aad?r=use1" class="support-link" target="_blank">
+                    🛠️ Get Technical Support
+                </a>
+                <a href="https://onyx-plant-de0.notion.site/Appendix-Agent-Commission-Guidelines-23933f8346fb8024a507f1725268f9f3?source=copy_link" class="support-link" target="_blank">
+                    📊 Commission Guidelines
+                </a>
+            </div>
         </div>
     </div>
     
@@ -620,5 +922,4 @@
         });
     </script>
 </body>
-
 </html>
